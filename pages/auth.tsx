@@ -46,13 +46,13 @@ const Auth = () => {
                 type="password"
                 value={password}
               />
-              <button className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
-                Login
+              <button className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition active:scale-95">
+                {variant === 'login' ? 'Login' : 'Sign Up'}
               </button>
               <p className="text-neutral-500 mt-12">
-                First time using NeuFlix?
+                {variant === 'login' ? 'First time using NeuFlix?' : 'Already have an account?'}
                 <span onClick={toogleVariant} className="text-white ml-1 hover:underline cursor-pointer">
-                  Create an account
+                  {variant === 'login' ? 'Create an account' : 'Login'}
                 </span>
               </p>
             </div>
