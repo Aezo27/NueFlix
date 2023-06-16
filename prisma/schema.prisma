@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  // previewFeatures = ["mongoDb"]
 }
 
 datasource db {
@@ -20,7 +21,7 @@ model User {
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
   favoriteIds    String[]  @db.ObjectId
-  session        Session[]
+  sessions        Session[]
   accounts       Account[]
 }
 
@@ -40,7 +41,7 @@ model Account {
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@unique([providerAccountId])
+  @@unique([provider, providerAccountId])
 }
 
 model Session {
